@@ -1,0 +1,46 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="static/style.css" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+  
+  window.onload = function() {
+        document.getElementById("input-area").focus();
+      var element = document.getElementById("element-id");
+      element.scrollTop = element.scrollHeight;
+  }
+</script>
+
+<body>
+  <div class="chatbot-container">
+  <div class="chatbot-header">
+    <h2>Chatbot</h2>
+  </div>
+  <div class="chatbot-messages" id="element-id">
+    {%for mess in messageHist%}
+    <div class="user-message">
+      <p>{{mess.1}}</p>
+    </div>
+    <div class="chatbot-message">
+      <p>{{mess.0}}</p>
+    </div>
+    {% endfor %}
+  </div>
+  <form method="post">
+  <div class="chatbot-input">
+    
+      {%csrf_token %}
+    <input id="input-area" type="text" placeholder="Type your message here..."  name="val1">
+    <button type="submit">Send</button>
+  </div>
+</form>
+</div>
+
+</body>
+</html>

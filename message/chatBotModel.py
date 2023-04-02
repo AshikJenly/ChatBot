@@ -2,7 +2,7 @@
 import pandas as pd
 import openai
 from pathlib import Path
-API_KEY="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"
+API_KEY=""
 openai.api_key=API_KEY
 BASE_DIR = Path(__file__).resolve().parent.parent
 
